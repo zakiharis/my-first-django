@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=vouchers
+POSTGRES_USER=QiarCgAhDVlrXbVoJYofWdOcHNDmeAxn
+POSTGRES_PASSWORD=VqR4Ths7KvfqpoKL5vQUTm2W4oOrLgmAxzCKLQ11qajUfs6V9zprSViRJN9ArAcW
