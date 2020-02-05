@@ -1,1 +1,83 @@
 {% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Image</th>
+          <th scope="col">Product</th>
+          <th scope="col">Qty</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><img src="{% static 'images/no-image-icon.PNG' %}" style="width: 150px"></td>
+          <td>Product X</td>
+          <td>1</td>
+          <td>RM 120.00</td>
+          <td>RM 120.00</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><img src="{% static 'images/no-image-icon.PNG' %}" style="width: 150px"></td>
+          <td>Product Y</td>
+          <td>2</td>
+          <td>RM 35.00</td>
+          <td>RM 70.00</td>
+        </tr>
+        <tr>
+          <td colspan="5">Subtotal</td>
+          <td>RM 190.00</td>
+        </tr>
+        {% if voucher %}
+        <tr>
+          <td colspan="5">
+            <strong>{{ voucher.code }}</strong> applied ({{ voucher.desc }})
+          </td>
+          <td>- RM {{ discount_value|floatformat:2 }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td colspan="5">TOTAL</td>
+          <td>RM {{ total_price|floatformat:2 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<form action="." method="POST">
+<div class="row">
+  <div class="col-md">
+    <div class="float-right">
+      Apply a voucher {{ form }}
+      <input type="submit" value="Apply">
+      {% csrf_token %}
+    </div>
+  </div>
+</div>
+</form>
+
+<div class="row">
+  <div class="col-md">&nbsp;
+  </div>
+</div>
+
+<form action="/submit-order/" method="POST">
+<div class="row">
+  <div class="col-md">
+    <input type="submit" value="Submit Order" class="float-right">
+    {% csrf_token %}
+  </div>
+</div>
+</form>
+
+{% endblock content %}
