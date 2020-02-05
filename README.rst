@@ -24,6 +24,19 @@ Moved to settings_.
 Basic Commands
 --------------
 
+Setting Up The Web APP
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Basic step to run this web app::
+
+    $ docker-compose -f local.yml build
+    $ docker-compose -f local.yml up
+    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
+
+    Then browse http://0.0.0.0:8000/
+
+    * You need to add the voucher code in the admin panel
+
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
